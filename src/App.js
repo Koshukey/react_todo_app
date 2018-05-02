@@ -3,6 +3,8 @@ import TodoList from './TodoList';
 import Form from './Form';
 import './css/App.css';
 
+
+
 class App extends Component { //Appというコンポーネントクラスを作製
 
   constructor() { //初期値設定
@@ -30,6 +32,8 @@ class App extends Component { //Appというコンポーネントクラスを作
       }
   }
 
+
+
   handleSubmit(e){
     e.preventDefault();
     const title = e.target.title.value;
@@ -38,7 +42,7 @@ class App extends Component { //Appというコンポーネントクラスを作
     const countTodo = this.state.contTodo
 
 
-    todos.push({
+    todos.push({ //pushメソッドで配列に要素を追加
       id: countTodo,
       title: title,
       desc: desc,
@@ -52,6 +56,8 @@ class App extends Component { //Appというコンポーネントクラスを作
     e.target.desc.value = '';
   }
 
+
+
   setTodoStatus(clickTodo) {
     const todos = this.state.todos.slice();
     const todo = todos[clickTodo.id - 1];
@@ -61,10 +67,12 @@ class App extends Component { //Appというコンポーネントクラスを作
     this.setState({ todos });
   }
 
+
+
   render() {
     return(
       <div className="app">
-        <h1>todoアプリ作る</h1>
+        <h1>Todo-App</h1>
         <Form handleSubmit={this.handleSubmit.bind(this)} />
         <TodoList
           todos={this.state.todos}
